@@ -481,7 +481,10 @@ function getRandomResponse() {
 function autoPost() {
   $.ajax({
     type: "POST",
-    url: "https://walltaker.joi.how/api/links/" + "1945" + "/response.json",
+    url:
+      "https://walltaker.joi.how/api/links/" +
+      settings["linkID"] +
+      "/response.json",
     data: JSON.stringify({
       api_key: settings["api_key"],
       type: "horny",
@@ -500,7 +503,7 @@ function autoPost() {
 async function autoRate() {
   const autoUrl =
     "https://walltaker.joi.how/api/links/" +
-    "1945" +
+    settings["linkID"] +
     ".json" +
     "?api_key=" +
     settings["api_key"];
