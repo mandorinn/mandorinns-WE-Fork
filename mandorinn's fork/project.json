@@ -83,8 +83,8 @@
         "value": "medium"
       },
       "noVideo": {
-        "index": 32,
-        "order": 152,
+        "index": 40,
+        "order": 160,
         "text": "Remove Volume Control",
         "type": "bool",
         "value": true
@@ -125,12 +125,72 @@
           {
             "label": "I'm Busy/Sorry!",
             "value": "none"
+          },
+          {
+            "label": "Custom reactions",
+            "value": "custom"
           }
         ],
         "order": 151,
         "text": "Master's personality",
         "type": "combo",
         "value": "like"
+      },
+      "autoReact1": {
+        "index": 32,
+        "order": 152,
+        "text": "Auto Reaction 1:",
+        "type": "textinput",
+        "value": ""
+      },
+      "autoReact2": {
+        "index": 33,
+        "order": 153,
+        "text": "Auto Reaction 2:",
+        "type": "textinput",
+        "value": ""
+      },
+      "autoReact3": {
+        "index": 34,
+        "order": 154,
+        "text": "Auto Reaction 3:",
+        "type": "textinput",
+        "value": ""
+      },
+      "autoReact4": {
+        "index": 35,
+        "order": 155,
+        "text": "Auto Reaction 4:",
+        "type": "textinput",
+        "value": ""
+      },
+      "autoReact5": {
+        "index": 36,
+        "order": 156,
+        "text": "Auto Reaction 5:",
+        "type": "textinput",
+        "value": ""
+      },
+      "autoReact6": {
+        "index": 37,
+        "order": 157,
+        "text": "Auto Reaction 6:",
+        "type": "textinput",
+        "value": ""
+      },
+      "autoReact7": {
+        "index": 38,
+        "order": 158,
+        "text": "Auto Reaction 7:",
+        "type": "textinput",
+        "value": ""
+      },
+      "autoReact8": {
+        "index": 39,
+        "order": 159,
+        "text": "Auto Reaction 8:",
+        "type": "textinput",
+        "value": ""
       },
       "linkID": {
         "index": 0,

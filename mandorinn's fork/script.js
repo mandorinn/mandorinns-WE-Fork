@@ -73,6 +73,11 @@ const reactions = {
   custom: [" ", " ", " ", " ", " ", " "],
 };
 
+const customAutoReactions = {
+  custom: [""],
+  /* custom: ["", "", "", "", "", "", "", ""], */
+};
+
 //Settings
 var settings = {
   overrideURL: "", // Put an Url here to only show this url (must be link to picture/video (static pages on e621))
@@ -269,6 +274,40 @@ window.wallpaperPropertyListener = {
     if (properties.reaction6) {
       reactions["custom"][5] = properties.reaction6.value;
 
+      reloadCanvas = true;
+    }
+
+    if (properties.autoReact1.value !== "") {
+      console.log(customAutoReactions["custom"]);
+      customAutoReactions["custom"][0] = properties.autoReact1.value;
+      reloadCanvas = true;
+    }
+    if (properties.autoReact2.value !== "") {
+      customAutoReactions["custom"].push(properties.autoReact2.value);
+      reloadCanvas = true;
+    }
+    if (properties.autoReact3.value !== "") {
+      customAutoReactions["custom"].push(properties.autoReact3.value);
+      reloadCanvas = true;
+    }
+    if (properties.autoReact4.value !== "") {
+      customAutoReactions["custom"].push(properties.autoReact4.value);
+      reloadCanvas = true;
+    }
+    if (properties.autoReact5.value !== "") {
+      customAutoReactions["custom"].push(properties.autoReact5.value);
+      reloadCanvas = true;
+    }
+    if (properties.autoReact6.value !== "") {
+      customAutoReactions["custom"].push(properties.autoReact6.value);
+      reloadCanvas = true;
+    }
+    if (properties.autoReact7.value !== "") {
+      customAutoReactions["custom"].push(properties.autoReact7.value);
+      reloadCanvas = true;
+    }
+    if (properties.autoReact8.value !== "") {
+      customAutoReactions["custom"].push(properties.autoReact8.value);
       reloadCanvas = true;
     }
 
@@ -474,8 +513,19 @@ const autoReactions = {
 };
 
 function getRandomResponse() {
-  let num = Math.floor(Math.random() * 8);
-  return autoReactions[settings["masterPersona"]][num];
+  if (settings["masterPersona"] != "custom") {
+    let num = Math.floor(Math.random() * 8);
+    return autoReactions[settings["masterPersona"]][num];
+  }
+  if (settings["masterPersona"] == "custom") {
+    /* for (let i = 0; i < customAutoReactions["custom"].length; i++) {
+      if (customAutoReactions["custom"][i] == "") {
+        customAutoReactions["custom"].splice(i, 1);
+      }
+    } */
+    let num = Math.floor(Math.random() * customAutoReactions["custom"].length);
+    return customAutoReactions["custom"][num];
+  }
 }
 
 function autoPost() {
@@ -528,6 +578,7 @@ async function autoRate() {
     resetTimer();
   }
 }
+
 timer = setInterval(autoRate, settings["autoResponseInt"]);
 
 function resetTimer() {
