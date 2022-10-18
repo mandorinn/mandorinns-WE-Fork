@@ -510,14 +510,28 @@ async function autoRate() {
   const autoResponse = await fetch(autoUrl);
   const curRat = await autoResponse.json();
   const currentRating = curRat.response_type;
+  const siteUrl = curRat.post_url;
   if (currentRating === null) {
-    autoPost();
+    if (
+      siteUrl === document.getElementById("bImg").src ||
+      document.getElementById("bVid").src
+    ) {
+      console.log("Auto Rating!");
+      autoPost();
+    } else {
+      resetTimer();
+    }
+  }
+  if (currentRating != null) {
+    resetTimer();
   } else {
+    resetTimer();
   }
 }
 timer = setInterval(autoRate, settings["autoResponseInt"]);
 
 function resetTimer() {
+  console.log("Resetting Timer!");
   clearInterval(timer);
   timer = setInterval(autoRate, settings["autoResponseInt"]);
 }
